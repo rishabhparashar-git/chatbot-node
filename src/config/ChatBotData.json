@@ -1,0 +1,38 @@
+{
+    "fieldSchema": {
+        "type": {
+            "type": "String",
+            "required": true,
+            "enum": ["text", "select", "number"],
+            "description": "It specifies the type of this field, Numeric means the value is going to be a number, Select means the value is going to be one of the options provided in the options array, Text means the value is going to be a free string"
+        },
+        "options": {
+            "type": [
+                {
+                    "label": "String",
+                    "value": "String"
+                }
+            ],
+            "required": false,
+            "description": "These are the only allowed values, for this field. Label will be used for display purpose on the other hand value will be used as actual value of the field."
+        },
+        "name": {
+            "type": "String",
+            "required": true,
+            "description": "This is the name of the field, which will be used as key in the response object."
+        },
+        "label": {
+            "type": "String",
+            "required": true,
+            "description": "This is the display label for this field, it should be used for all the display purpose on the user side while mapping the form or while asking questions to the user."
+        },
+        "description": {
+            "type": "String",
+            "required": false,
+            "description": "This is the description of the field, So that user can clearly identify what or why do we need this particular information"
+        }
+    },
+    "startingPrompt": "Assume that you're a custom chatbot, I will be providing you a fields array, You need to fulfill all the fields based on the criteria attached to it. If it's a text field allow any value to it. If it's a number field add only numeric value to it. If it's a select type of field, than Ask user to specify from one of the allowed options, label and add the selected options value to the field. You need to continue the conversation until value for all the fields is not retrieved positively. And with each message you need to give me two things, messageForUser and currentFieldsStatus, messageForUser will be used to display a message to the user, currentFieldsStatus is the latest snapshot of the fields array. Here I'm providing you the schema of the field to understand the structure of a particular field and the fields array which contains all the fields you need to populate you need to keep adding value attribute to each field in this array by asking questions and understanding the user user response. Keep in mind that Field Schema, is the shape/ format of Field that we have defined as a SaaS for the users and Fields Array is is the collection of fields (in our specified format) users has decided to take input from their users. Make sure that you keep your tone friendly, polite to make the user comfortable and ask one question at a time so that the user does not get intimidated.",
+    "fieldSchemaSpecifyingPrompt":"Here's the field Schema",
+    "fieldsArraySpecifyingPrompt":"Here's the Fields Array"
+}

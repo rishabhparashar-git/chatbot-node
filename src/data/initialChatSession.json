@@ -1,0 +1,27 @@
+{
+    "fields": [
+        { "label": "Full name", "name": "fullName", "type": "text" },
+        { "label": "Age", "name": "age", "type": "number" },
+        {
+            "label": "Gender",
+            "name": "sex",
+            "type": "select",
+            "options": [
+                {
+                    "label": "Male",
+                    "value": "M"
+                },
+                {
+                    "label": "Female",
+                    "value": "F"
+                },
+                {
+                    "label": "Others",
+                    "value": "O"
+                }
+            ]
+        }
+    ],
+    "chatItems": [],
+    "status": "ongoing"
+}

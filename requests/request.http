@@ -1,0 +1,35 @@
+@port = 9000
+@host = http://localhost:{{port}}/api/chatbot
+
+###
+@sessionId = 67118a79590e6879fbf389d8
+GET {{host}}/getChatSession/{{sessionId}}
+Content-Type: {{contentType_json}}
+
+
+
+###
+# @prompt message Type your message
+POST {{host}}/tryCareerChat
+Content-Type: {{contentType_json}}
+
+{
+    "message":"{{message}}"
+}
+
+###
+GET {{host}}/initChatSession
+Content-Type: {{contentType_json}}
+
+
+###
+@chatSessionId = 67118a79590e6879fbf389d8
+# @prompt message = Update that and Return me the JSON
+# @prompt role = system
+
+POST {{host}}/addChatItem/{{chatSessionId}}
+Content-Type: {{contentType_json}}
+
+{
+    "message":"{{message}}"
+}
